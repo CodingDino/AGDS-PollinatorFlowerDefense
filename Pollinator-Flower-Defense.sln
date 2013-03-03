@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{5CFAB209-F1A2-1F68-3D67-83DB718DDB0B}") = "Pollinator-Flower-Defense", "Assembly-CSharp-firstpass.csproj", "{11160A99-6019-F76B-9BFD-D924A2F6D955}"
+EndProject
 Project("{5CFAB209-F1A2-1F68-3D67-83DB718DDB0B}") = "Pollinator-Flower-Defense", "Assembly-CSharp.csproj", "{2E45A6C8-F289-039C-4D78-7B859903BE7E}"
 EndProject
 Project("{5CFAB209-F1A2-1F68-3D67-83DB718DDB0B}") = "Pollinator-Flower-Defense", "Assembly-CSharp-Editor.csproj", "{259F8F34-4B9A-30A2-D21A-14F838143B6C}"
@@ -13,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11160A99-6019-F76B-9BFD-D924A2F6D955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11160A99-6019-F76B-9BFD-D924A2F6D955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11160A99-6019-F76B-9BFD-D924A2F6D955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11160A99-6019-F76B-9BFD-D924A2F6D955}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E45A6C8-F289-039C-4D78-7B859903BE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E45A6C8-F289-039C-4D78-7B859903BE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E45A6C8-F289-039C-4D78-7B859903BE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +35,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-					GlobalSection(MonoDevelopProperties) = preSolution
+												GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
