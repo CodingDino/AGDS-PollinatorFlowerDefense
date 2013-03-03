@@ -57,7 +57,7 @@ public class AntAI : MonoBehaviour {
         dir *= speed * Time.fixedDeltaTime;
         controller.Move (dir);
 		
-		Debug.Log ("Waypoint: "+path.vectorPath[currentWaypoint]+"   Position: "+transform.position);
+		//Debug.Log ("Waypoint: "+path.vectorPath[currentWaypoint]+"   Position: "+transform.position);
         
         //Check if we are close enough to the next waypoint
         //If we are, proceed to follow the next waypoint
