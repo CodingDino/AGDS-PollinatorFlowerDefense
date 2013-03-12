@@ -48,7 +48,7 @@ public class AntAI : MonoBehaviour {
         }
         
         if (currentWaypoint >= path.vectorPath.Count) {
-            Debug.Log ("End Of Path Reached");
+            //Debug.Log ("End Of Path Reached");
             return;
         }
         

@@ -143,7 +143,7 @@
      <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
      <Compile Include="Assets\Scripts\AntAI.cs" />
      <Compile Include="Assets\Scripts\BeeBasic.cs" />
-     <Compile Include="Assets\Scripts\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\RadialMenu.cs" />
      <Compile Include="Assets\iTween\Plugins\iTween.cs" />
      <Compile Include="Assets\iTween\Sample\MoveSample.cs" />

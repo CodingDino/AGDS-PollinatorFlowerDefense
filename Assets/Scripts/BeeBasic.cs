@@ -6,7 +6,7 @@ public class BeeBasic : MonoBehaviour {
 	
 	// Design data members
 	public int health = 25;
-	public int damage = 3;
+	public int damage = 20;
 	public float speed = 0.5f;
 	public int defense = 1;
 	public int range = 1;
@@ -29,7 +29,7 @@ public class BeeBasic : MonoBehaviour {
 		// Get possible targets
 		GameObject[] potentialTargets = null;
 		potentialTargets = GameObject.FindGameObjectsWithTag("Ant");
-		if (potentialTargets != null) Debug.Log("Potential targets found: "+potentialTargets);
+		//if (potentialTargets != null) Debug.Log("Potential targets found: "+potentialTargets);
 		GameObject target = null;
 		//float minDistance = 1000;
 		// For each potential target
@@ -51,7 +51,7 @@ public class BeeBasic : MonoBehaviour {
 			{
 				nextAttack = (now).AddMilliseconds(speed*1000);
 				Debug.Log("Attacking target: "+target);
-				HealthBar targetHealth = target.GetComponent<HealthBar>();
+				Health targetHealth = target.GetComponent<Health>();
 				targetHealth.SetHP(targetHealth.HP-damage);
 				//Debug.Log("current time: "+(now).TimeOfDay);
 				//Debug.Log("Next attack available: "+nextAttack.TimeOfDay);

@@ -15,7 +15,7 @@ using System.Collections;
 // ************************************************************************ 
 // Class: HealthBarScript
 // ************************************************************************ 
-public class HealthBar : MonoBehaviour {
+public class Health : MonoBehaviour {
 
     // ********************************************************************
     // Private Data Members 
@@ -39,43 +39,61 @@ public class HealthBar : MonoBehaviour {
 	private GameObject m_healthbarInstance;
 	private GameObject m_healthbarBackgroundInstance;
 	private OTSprite m_sprite;
+	private OTSprite m_spriteBackground;
 	
     // ********************************************************************
     // Exposed Data Members 
     // ********************************************************************
 	
     // ********************************************************************
+    // Function:	Awake()
+	// Purpose:		Run when new instance of the object is created.
+    // ********************************************************************
+	void Awake () {
+		if (!m_healthbarBackground) m_healthbarBackground =  (GameObject)Resources.Load("healthbar-background", typeof(GameObject));
+		if (!m_healthbar) m_healthbar = (GameObject)Resources.Load("healthbar", typeof(GameObject));
+	}
+	
+    // ********************************************************************
     // Function:	Start()
 	// Purpose:		Run when new instance of the object is created.
     // ********************************************************************
 	void Start () {
-		Debug.Log("Instantiating healthbar prefab...");
+		Debug.Log("Instantiating healthbar prefab for: "+gameObject);
 		
-		// Background bar
-		m_healthbarBackgroundInstance = (GameObject)Instantiate(m_healthbarBackground,transform.position,transform.rotation);
-		m_healthbarBackgroundInstance.transform.parent = transform;
-		m_sprite = m_healthbarBackgroundInstance.GetComponent<OTSprite>();
-		m_sprite.size= new Vector2(m_width,m_height);
-		m_sprite.position = new Vector2(m_positionY,m_positionX);
+		// Background bar		
+		m_healthbarBackgroundInstance = (GameObject)Instantiate(m_healthbarBackground,transform.position, Quaternion.identity);
+		Debug.Log ("Successfully created instance: "+m_healthbarBackgroundInstance);
+		//m_healthbarBackgroundInstance.transform.parent = transform;
+		m_spriteBackground = m_healthbarBackgroundInstance.GetComponent<OTSprite>();
+		m_spriteBackground.size= new Vector2(m_width,m_height);
 		
-		m_healthbarInstance = (GameObject)Instantiate(m_healthbar,transform.position,transform.rotation);
-		m_healthbarInstance.transform.parent = transform;
+		// Health bar		
+		m_healthbarInstance = (GameObject)Instantiate(m_healthbar,transform.position, Quaternion.identity);
+		Debug.Log ("Successfully created instance: "+m_healthbarInstance);
+		//m_healthbarInstance.transform.parent = transform;
 		m_sprite = m_healthbarInstance.GetComponent<OTSprite>();
 		SetHP(m_maxHP);
 	}
 	
     // ********************************************************************
-    // Function:	Start()
-	// Purpose:		Called once per frame.
+    // Function:	LateUpdate()
+	// Purpose:		Called once per frame, after Update() operations.
     // ********************************************************************
-	void Update () {
+	void LateUpdate () {
+		m_sprite.position = new Vector2(transform.position.x+(m_width-m_sprite.size.x)/2+m_positionX,transform.position.y+m_positionY);
+		m_spriteBackground.position = new Vector2(transform.position.x+m_positionX,transform.position.y+m_positionY);
 	}
+	
+    // ********************************************************************
+    // Function:	SetHP()
+	// Purpose:		Updates the HP to the supplied value.
+    // ********************************************************************
 	public void SetHP(float HP) {
 		if (HP > m_maxHP) HP = m_maxHP;
 		if (HP < 0) HP = 0;
 		m_currentHP = HP;
 		m_sprite.size= new Vector2(m_width*(HP/m_maxHP),m_height);
-		m_sprite.position = new Vector2(m_positionY,(m_width-m_sprite.size.x)/2+m_positionX);
 		
 	}
 }
