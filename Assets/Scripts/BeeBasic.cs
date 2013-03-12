@@ -51,6 +51,8 @@ public class BeeBasic : MonoBehaviour {
 			{
 				nextAttack = (now).AddMilliseconds(speed*1000);
 				Debug.Log("Attacking target: "+target);
+				HealthBar targetHealth = target.GetComponent<HealthBar>();
+				targetHealth.SetHP(targetHealth.HP-damage);
 				//Debug.Log("current time: "+(now).TimeOfDay);
 				//Debug.Log("Next attack available: "+nextAttack.TimeOfDay);
 			}
