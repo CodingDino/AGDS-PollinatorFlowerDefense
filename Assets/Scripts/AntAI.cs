@@ -6,6 +6,7 @@ public class AntAI : MonoBehaviour {
 	
 	public GameObject target;
     public Vector3 targetPosition;
+	public int damage=10;
     
     private Seeker seeker;
     private CharacterController controller;
@@ -49,6 +50,7 @@ public class AntAI : MonoBehaviour {
         
         if (currentWaypoint >= path.vectorPath.Count) {
             //Debug.Log ("End Of Path Reached");
+			target.GetComponent<Health>().SetHP(target.GetComponent<Health>().HP-damage);
 			gameObject.GetComponent<Health>().Kill();
             return;
         }
