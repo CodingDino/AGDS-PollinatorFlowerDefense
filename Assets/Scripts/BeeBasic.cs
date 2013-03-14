@@ -29,7 +29,7 @@ public class BeeBasic : MonoBehaviour {
 		// Get possible targets
 		GameObject[] potentialTargets = null;
 		potentialTargets = GameObject.FindGameObjectsWithTag("Ant");
-		//if (potentialTargets != null) Debug.Log("Potential targets found: "+potentialTargets);
+		if (potentialTargets != null) Debug.Log("Potential targets found: "+potentialTargets);
 		GameObject target = null;
 		//float minDistance = 1000;
 		// For each potential target

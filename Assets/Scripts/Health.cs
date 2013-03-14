@@ -81,7 +81,7 @@ public class Health : MonoBehaviour {
 	// Purpose:		Called once per frame, after Update() operations.
     // ********************************************************************
 	void LateUpdate () {
-		m_sprite.position = new Vector2(transform.position.x+(m_width-m_sprite.size.x)/2+m_positionX,transform.position.y+m_positionY);
+		m_sprite.position = new Vector2(transform.position.x+m_positionX-(m_width-m_sprite.size.x)/2,transform.position.y+m_positionY);
 		m_spriteBackground.position = new Vector2(transform.position.x+m_positionX,transform.position.y+m_positionY);
 	}
 	
@@ -95,5 +95,19 @@ public class Health : MonoBehaviour {
 		m_currentHP = HP;
 		m_sprite.size= new Vector2(m_width*(HP/m_maxHP),m_height);
 		
+		if(HP <= 0)
+		{
+			Kill();
+		}
+	}
+	
+    // ********************************************************************
+    // Function:	Kill()
+	// Purpose:		Kills the ant and it's health bars
+    // ********************************************************************
+	public void Kill() {
+		Destroy (m_healthbarInstance);
+		Destroy (m_healthbarBackgroundInstance);
+		Destroy(gameObject);
 	}
 }

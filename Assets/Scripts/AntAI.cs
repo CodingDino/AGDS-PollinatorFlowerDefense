@@ -49,6 +49,7 @@ public class AntAI : MonoBehaviour {
         
         if (currentWaypoint >= path.vectorPath.Count) {
             //Debug.Log ("End Of Path Reached");
+			gameObject.GetComponent<Health>().Kill();
             return;
         }
         
