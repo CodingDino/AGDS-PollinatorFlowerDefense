@@ -142,6 +142,7 @@
      <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTSounds.cs" />
      <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
      <Compile Include="Assets\Scripts\AntAI.cs" />
+     <Compile Include="Assets\Scripts\AntSpawner.cs" />
      <Compile Include="Assets\Scripts\BeeBasic.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\RadialMenu.cs" />

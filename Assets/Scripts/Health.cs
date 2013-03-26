@@ -1,7 +1,7 @@
 // ************************************************************************ 
 // File Name:   HealthBarScript.cs 
 // Purpose:     Controls health bar display for mobs
-// Project:		#PROJECTNAME#
+// Project:		Pollinator - Flower Defense
 // Author:      Sarah Herzog  
 // Copyright: 	2013 Bound-Dare Studios
 // ************************************************************************ 
@@ -18,7 +18,7 @@ using System.Collections;
 public class Health : MonoBehaviour {
 
     // ********************************************************************
-    // Private Data Members 
+    // Exposed Data Members 
     // ********************************************************************
 	public GameObject m_healthbar;
 	public GameObject m_healthbarBackground;
@@ -27,7 +27,6 @@ public class Health : MonoBehaviour {
 	public float m_height = 0.15f;
 	public float m_positionX = 0f;
 	public float m_positionY = 0.6f;
-	private float m_currentHP;
 	public float HP {
 		get {
 			return m_currentHP;
@@ -36,22 +35,22 @@ public class Health : MonoBehaviour {
 			SetHP(value);
 		}
 	}
+	
+    // ********************************************************************
+    // Private Data Members 
+    // ********************************************************************
+	private float m_currentHP;
 	private GameObject m_healthbarInstance;
 	private GameObject m_healthbarBackgroundInstance;
 	private OTSprite m_sprite;
 	private OTSprite m_spriteBackground;
 	
-    // ********************************************************************
-    // Exposed Data Members 
-    // ********************************************************************
 	
     // ********************************************************************
     // Function:	Awake()
 	// Purpose:		Run when new instance of the object is created.
     // ********************************************************************
 	void Awake () {
-		if (!m_healthbarBackground) m_healthbarBackground =  (GameObject)Resources.Load("healthbar-background", typeof(GameObject));
-		if (!m_healthbar) m_healthbar = (GameObject)Resources.Load("healthbar", typeof(GameObject));
 	}
 	
     // ********************************************************************
@@ -60,6 +59,10 @@ public class Health : MonoBehaviour {
     // ********************************************************************
 	void Start () {
 		Debug.Log("Instantiating healthbar prefab for: "+gameObject);
+		
+		// Get healthbar prefabs
+		if (!m_healthbarBackground) m_healthbarBackground =  (GameObject)Resources.Load("healthbar-background", typeof(GameObject));
+		if (!m_healthbar) m_healthbar = (GameObject)Resources.Load("healthbar", typeof(GameObject));
 		
 		// Background bar		
 		m_healthbarBackgroundInstance = (GameObject)Instantiate(m_healthbarBackground,transform.position, Quaternion.identity);

@@ -26,9 +26,15 @@ public class AntAI : MonoBehaviour {
     public void Start () {
         seeker = GetComponent<Seeker>();
         controller = GetComponent<CharacterController>();
+		
+		// If not target, get it
+		if (!target)
+			target = GameObject.FindGameObjectWithTag("Hive");
+		
 		targetPosition = target.transform.position;
         
         //Start a new path to the targetPosition, return the result to the OnPathComplete function
+        Debug.Log ("Looking for a path between our position: "+transform.position+" and target position: "+targetPosition);
         seeker.StartPath (transform.position,targetPosition, OnPathComplete);
     }
     
