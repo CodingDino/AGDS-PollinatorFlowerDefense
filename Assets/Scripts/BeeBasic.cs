@@ -13,9 +13,19 @@ public class BeeBasic : MonoBehaviour {
 	
 	// Internal data members
 	protected DateTime nextAttack = System.DateTime.Now;
+	protected OTSprite m_sprite;
+	protected Vector3 m_dragStart = new Vector3(0,0,0);
+	protected bool m_dragging = false;
 
 	// Use this for initialization
 	void Start () {
+		
+		m_sprite = GetComponent<OTSprite>();
+		
+		// hookup our drag events
+		m_sprite.onDragStart = DragStart;
+		m_sprite.onDragEnd = DragEnd;
+		m_sprite.onDragging = Dragging;
 	
 	}
 	
@@ -44,7 +54,7 @@ public class BeeBasic : MonoBehaviour {
 		}
 		
 		// Attack target if it is time.
-		if(target !=null)
+		if(target !=null && !m_dragging)
 		{
 			DateTime now = System.DateTime.Now;
 			if (now >= nextAttack)
@@ -58,5 +68,32 @@ public class BeeBasic : MonoBehaviour {
 			}
 		}
 		
+	}
+	
+	public void DroppedOnFlower(Transform flowerTransform)
+	{
+		transform.position = flowerTransform.position;
+	}
+	
+	
+	void DragStart(OTObject owner)
+	{
+		Debug.Log("Dragging started.");
+		m_dragging = true;
+		m_dragStart = transform.position;
+		
+	}
+	
+	
+	void DragEnd(OTObject owner)
+	{
+		Debug.Log("Dragging ended.");
+		m_dragging = false;
+		transform.position = m_dragStart;
+	}
+	
+	
+	void Dragging(OTObject owner)
+	{
 	}
 }

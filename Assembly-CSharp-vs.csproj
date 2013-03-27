@@ -144,6 +144,7 @@
      <Compile Include="Assets\Scripts\AntAI.cs" />
      <Compile Include="Assets\Scripts\AntSpawner.cs" />
      <Compile Include="Assets\Scripts\BeeBasic.cs" />
+     <Compile Include="Assets\Scripts\Flower.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\RadialMenu.cs" />
      <Compile Include="Assets\iTween\Plugins\iTween.cs" />
