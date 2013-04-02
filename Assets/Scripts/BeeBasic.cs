@@ -15,6 +15,7 @@ public class BeeBasic : MonoBehaviour {
 	protected DateTime nextAttack = System.DateTime.Now;
 	protected OTSprite m_sprite;
 	protected Vector3 m_dragStart = new Vector3(0,0,0);
+	protected Transform m_flower;
 	protected bool m_dragging = false;
 
 	// Use this for initialization
@@ -26,6 +27,9 @@ public class BeeBasic : MonoBehaviour {
 		m_sprite.onDragStart = DragStart;
 		m_sprite.onDragEnd = DragEnd;
 		m_sprite.onDragging = Dragging;
+		
+		// Set flower pointer
+		m_flower = transform.parent;
 	
 	}
 	
@@ -70,9 +74,14 @@ public class BeeBasic : MonoBehaviour {
 		
 	}
 	
-	public void DroppedOnFlower(Transform flowerTransform)
+	public void DroppedOnFlower(GameObject flower)
 	{
-		transform.position = flowerTransform.position;
+		// Set the bee's parent to the new flower
+		transform.parent = flower.transform;
+		// Record this flower for future dragging
+		m_flower = flower.transform;	
+		// Set the bee's local position to 0
+		transform.localPosition = new Vector3(0,0,transform.localPosition.z);	
 	}
 	
 	
@@ -80,7 +89,9 @@ public class BeeBasic : MonoBehaviour {
 	{
 		Debug.Log("Dragging started.");
 		m_dragging = true;
+		transform.parent = null;
 		m_dragStart = transform.position;
+		
 		
 	}
 	
@@ -89,7 +100,8 @@ public class BeeBasic : MonoBehaviour {
 	{
 		Debug.Log("Dragging ended.");
 		m_dragging = false;
-		transform.position = m_dragStart;
+		transform.parent = m_flower;
+		transform.localPosition = new Vector3(0,0,transform.localPosition.z);
 	}
 	
 	

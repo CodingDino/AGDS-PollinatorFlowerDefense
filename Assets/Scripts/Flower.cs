@@ -23,6 +23,6 @@ public class Flower : MonoBehaviour {
 	void ReceiveDrop(OTObject owner)
 	{
 		Debug.Log("Dropped on flower.");
-		owner.dropTarget.gameObject.GetComponent<BeeBasic>().DroppedOnFlower(transform);
+		owner.dropTarget.gameObject.GetComponent<BeeBasic>().DroppedOnFlower(gameObject);
 	}
 }
