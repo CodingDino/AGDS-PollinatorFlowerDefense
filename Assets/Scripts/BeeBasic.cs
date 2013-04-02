@@ -10,8 +10,10 @@ public class BeeBasic : MonoBehaviour {
 	public float speed = 0.5f;
 	public int defense = 1;
 	public int range = 1;
+	public float m_pollenSpeed = 1.0f;
 	
 	// Internal data members
+	protected DateTime m_nextPollen = System.DateTime.Now;
 	protected DateTime nextAttack = System.DateTime.Now;
 	protected OTSprite m_sprite;
 	protected Vector3 m_dragStart = new Vector3(0,0,0);
@@ -35,6 +37,18 @@ public class BeeBasic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		// Attack if an enemy is near
+		Attack ();
+		
+		// Generate pollen for the hive
+		GeneratePollen ();
+		
+	}
+	
+	// Check for nearby enemies and attack
+	private void Attack()
+	{
 	
 		// TODO: Maintain a list of all enemies, the ones closest to the hive first, then each object
 		// can walk through the list and select the first one within range.
@@ -71,9 +85,27 @@ public class BeeBasic : MonoBehaviour {
 				//Debug.Log("Next attack available: "+nextAttack.TimeOfDay);
 			}
 		}
-		
 	}
 	
+	// Generate Pollen
+	private void GeneratePollen()
+	{
+		// Make sure bee is on the flower
+		if (m_dragging) return;
+		
+		// Generate pollen if it is time
+		DateTime now = System.DateTime.Now;
+		if (now >= m_nextPollen)
+		{
+			// Determine when next pollen will be generated
+			m_nextPollen = (now).AddMilliseconds(m_pollenSpeed*1000);
+			// Get hive and generate pollen
+			GameObject hive = GameObject.FindGameObjectWithTag("Hive");
+			hive.GetComponent<Pollen>().AddPollen(1);
+		}
+	}
+	
+	// Called when the bee is dropped on a new flower
 	public void DroppedOnFlower(GameObject flower)
 	{
 		// Set the bee's parent to the new flower
