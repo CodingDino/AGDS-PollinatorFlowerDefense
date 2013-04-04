@@ -116,7 +116,6 @@ public class BeeBasic : MonoBehaviour {
 		transform.localPosition = new Vector3(0,0,transform.localPosition.z);	
 	}
 	
-	
 	void DragStart(OTObject owner)
 	{
 		Debug.Log("Dragging started.");
