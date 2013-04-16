@@ -6,8 +6,11 @@ using System.Collections.Generic;
 public class Overlay : MonoBehaviour {
 	
 	private GameObject m_callingHex = null;
+	private bool m_activating = false;
+	private bool m_deactivating = false;
 	private bool m_active = false;
 	private DateTime m_nextTouch = System.DateTime.Now;
+	private DateTime m_nextActive = System.DateTime.Now;
 	
 	public bool IsActive()
 	{
@@ -39,6 +42,11 @@ public class Overlay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		// Activate or deactivate as needed
+		DateTime now = System.DateTime.Now;
+		if (m_activating && now >= m_nextActive) ActivateAfterDelay();
+		if (m_deactivating && now >= m_nextActive) DeactivateAfterDelay();
+		
 		// Check for touch
 		if (OT.Touched(gameObject)) OnTouch ();
 	
@@ -51,16 +59,36 @@ public class Overlay : MonoBehaviour {
 		DateTime now = System.DateTime.Now;
 		if (m_active || now < m_nextTouch) return;
 		
-		// Set next touch
-		m_nextTouch = now.AddMilliseconds(100);
-		
-		// Makes overlay visible
-		gameObject.GetComponent<OTSprite>().visible = true;
-		
 		// Check if hex has a flower
 		bool hasFlower = false, hasBee = false;
 		if (hex.transform.childCount > 0) hasFlower = true;
 		if (hasFlower && hex.transform.GetChild(0).transform.childCount > 0) hasBee = true;
+		// For now, exit if there is a bee
+		if (hasBee) return;
+		
+		// Set next touch
+		m_nextTouch = now.AddMilliseconds(100);
+		
+		// Set activating for next frame
+		m_activating = true;
+		m_nextActive = now.AddMilliseconds(50);
+		
+		// Sets calling hex
+		m_callingHex = hex;
+	}
+	private void ActivateAfterDelay()
+	{
+		m_activating = false;
+		
+		// Check if hex has a flower
+		bool hasFlower = false, hasBee = false;
+		if (m_callingHex.transform.childCount > 0) hasFlower = true;
+		if (hasFlower && m_callingHex.transform.GetChild(0).transform.childCount > 0) hasBee = true;
+		
+		// Makes overlay visible
+		gameObject.GetComponent<OTSprite>().visible = true;
+		Debug.Log("Overlay input: allowed.");
+		gameObject.GetComponent<OTSprite>().registerInput = true;
 		
 		// Make children invisible if they should be
 		for (int i=0; i < transform.childCount; ++i)
@@ -100,8 +128,6 @@ public class Overlay : MonoBehaviour {
 			}
 		}
 		
-		// Sets calling hex
-		m_callingHex = hex;
 		
 		m_active = true;
 	}
@@ -121,11 +147,21 @@ public class Overlay : MonoBehaviour {
 		DeactivateOverlay();
 	}
 	
-	private void DeactivateOverlay()
+	public void DeactivateOverlay()
 	{
+		m_deactivating = true;
+		DateTime now = System.DateTime.Now;
+		m_nextActive = now.AddMilliseconds(50);
+	}
+	private void DeactivateAfterDelay()
+	{
+		m_deactivating = false;
+		
 		// Makes overlay invisible
 		gameObject.GetComponent<OTSprite>().visible = false;
-		
+		Debug.Log("Overlay input: forbidden.");
+		gameObject.GetComponent<OTSprite>().registerInput = false;
+			
 		// Resets calling hex
 		m_callingHex = null;
 		

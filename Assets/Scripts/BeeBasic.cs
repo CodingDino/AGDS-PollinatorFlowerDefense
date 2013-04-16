@@ -11,9 +11,11 @@ public class BeeBasic : MonoBehaviour {
 	public int defense = 1;
 	public int range = 1;
 	public float m_pollenSpeed = 1.0f;
+	public float m_seedSpeed = 1.0f;
 	
 	// Internal data members
 	protected DateTime m_nextPollen = System.DateTime.Now;
+	protected DateTime m_nextSeed = System.DateTime.Now;
 	protected DateTime nextAttack = System.DateTime.Now;
 	protected OTSprite m_sprite;
 	protected Vector3 m_dragStart = new Vector3(0,0,0);
@@ -32,7 +34,6 @@ public class BeeBasic : MonoBehaviour {
 		
 		// Set flower pointer
 		m_flower = transform.parent;
-	
 	}
 	
 	// Update is called once per frame
@@ -43,6 +44,7 @@ public class BeeBasic : MonoBehaviour {
 		
 		// Generate pollen for the hive
 		GeneratePollen ();
+		GenerateSeeds ();
 		
 	}
 	
@@ -101,18 +103,37 @@ public class BeeBasic : MonoBehaviour {
 			m_nextPollen = (now).AddMilliseconds(m_pollenSpeed*1000);
 			// Get hive and generate pollen
 			GameObject hive = GameObject.FindGameObjectWithTag("Hive");
-			hive.GetComponent<Pollen>().AddPollen(1);
+			hive.GetComponent<Hive>().AddPollen(1);
+		}
+	}
+	
+	// Generate Seeds
+	private void GenerateSeeds()
+	{
+		// Make sure bee is on the flower
+		if (m_dragging) return;
+		
+		// Generate pollen if it is time
+		DateTime now = System.DateTime.Now;
+		if (now >= m_nextSeed)
+		{
+			// Determine when next pollen will be generated
+			m_nextSeed = (now).AddMilliseconds(m_seedSpeed*1000);
+			// Get hive and generate pollen
+			GameObject hive = GameObject.FindGameObjectWithTag("Hive");
+			hive.GetComponent<Hive>().AddSeeds(1);
 		}
 	}
 	
 	// Called when the bee is dropped on a new flower
 	public void DroppedOnFlower(GameObject flower)
 	{
+		Debug.Log("Dropped on a flower.");
 		// Set the bee's parent to the new flower
 		transform.parent = flower.transform;
 		// Record this flower for future dragging
 		m_flower = flower.transform;	
-		// Set the bee's local position to 0
+		// Set the bee's local position to 0 (snap to flower)
 		transform.localPosition = new Vector3(0,0,transform.localPosition.z);	
 	}
 	
@@ -120,19 +141,71 @@ public class BeeBasic : MonoBehaviour {
 	{
 		Debug.Log("Dragging started.");
 		m_dragging = true;
-		transform.parent = null;
-		m_dragStart = transform.position;
-		
-		
+		transform.parent = null; // remove parent
+		m_dragStart = transform.position; // record starting position
 	}
 	
 	
 	void DragEnd(OTObject owner)
 	{
 		Debug.Log("Dragging ended.");
+		
+		GameObject[] flowers = null;
+		flowers = GameObject.FindGameObjectsWithTag("Flower");
+		if (flowers != null && flowers.Length > 0)
+		{
+			Debug.Log("Flower list found, length = "+flowers.Length);
+		}
+		else
+		{
+			Debug.Log("No flowers found.");
+		}
+		Vector3 beePosition = transform.position;
+		float min_distance = 10000.0f;
+		GameObject new_parent = null;
+		
+		// Determine closest flower
+		for (int j=0; j < flowers.Length ; ++j)
+		{
+			if (Vector2.Distance(beePosition,flowers[j].transform.position) < min_distance)
+			{
+				min_distance = Vector2.Distance(beePosition,flowers[j].transform.position);
+				new_parent = flowers[j];
+			}
+		}
+		if (new_parent != null)
+		{
+			Debug.Log ("Potential parent found at distance = " + min_distance);
+		}
+		else
+		{
+			Debug.Log ("No potential parents found.");
+		}
+		
+		// Is the bee actually on that flower?
+		if (min_distance < 100)
+		{
+			// Does the flower already have a bee on it?
+			if (new_parent.transform.childCount == 0)
+			{
+				Debug.Log("New flower found! Dropping to it.");
+				// Record this flower as our new home
+				m_flower = new_parent.transform;
+			}
+			else
+			{
+				Debug.Log ("Flower already has a bee, snapping back to original position.");
+			}
+		}
+		else
+		{
+			Debug.Log ("No nearby flower found, snapping back to original position.");
+		}
+		
 		m_dragging = false;
-		transform.parent = m_flower;
-		transform.localPosition = new Vector3(0,0,transform.localPosition.z);
+		transform.parent = m_flower; // Set parent to the flower - if no new flower was set, this will be the previous flower parent.
+		transform.localPosition = new Vector3(0,0,transform.localPosition.z); // snap to center of flower.
+		
 	}
 	
 	

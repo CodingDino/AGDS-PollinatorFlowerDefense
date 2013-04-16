@@ -11,7 +11,6 @@ public class Flower : MonoBehaviour {
 		m_sprite = GetComponent<OTSprite>();
 		// hookup our drag events
 		m_sprite.onReceiveDrop = ReceiveDrop;
-	
 	}
 	
 	// Update is called once per frame
@@ -23,7 +22,7 @@ public class Flower : MonoBehaviour {
 	// Receive Drop
 	void ReceiveDrop(OTObject owner)
 	{
-		Debug.Log("Dropped on flower.");
+		Debug.Log("Received bee drop.");
 		owner.dropTarget.gameObject.GetComponent<BeeBasic>().DroppedOnFlower(gameObject);
 	}
 }
