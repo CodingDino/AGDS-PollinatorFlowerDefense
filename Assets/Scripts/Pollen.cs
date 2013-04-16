@@ -29,6 +29,6 @@ public class Pollen : MonoBehaviour {
 			m_pollen = m_maxPollen;
 		
 		// Update readout
-		GameObject.Find ("pollen_count").GetComponent<OTTextSprite>().text = "POLLEN: "+m_pollen;
+		GameObject.Find ("pollen_count").GetComponent<OTTextSprite>().text = ""+m_pollen;
 	}
 }

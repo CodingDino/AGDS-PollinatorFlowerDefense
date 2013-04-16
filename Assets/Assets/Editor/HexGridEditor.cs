@@ -13,15 +13,13 @@ public class HexGridEditor : MonoBehaviour {
 	[MenuItem ("Edit/Drop Bees to Flowers")]
 	public static void DropBeesToFlowers(){
 		Debug.Log("Dropping Bees to Flowers...");
-		GameObject[] bees = null;
-		bees = GameObject.FindGameObjectsWithTag("Bee");
+		GameObject.Find ("HexGrid").GetComponent<HexGrid>().DropBees();	
 	}
 
 	[MenuItem ("Edit/Drop Flowers to Hexes")]
-	public static void DropBeesToFlowers(){
+	public static void DropFlowersToHexes(){
 		Debug.Log("Dropping Flowers to Hexes...");
-		GameObject[] flowers = null;
-		flowers = GameObject.FindGameObjectsWithTag("Flower");
+		GameObject.Find ("HexGrid").GetComponent<HexGrid>().DropFlowers();	
 	}
 	
 	

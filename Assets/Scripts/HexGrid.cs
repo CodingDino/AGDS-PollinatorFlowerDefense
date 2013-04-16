@@ -9,7 +9,7 @@ public class HexGrid : MonoBehaviour {
 	public int m_numColumns = 5;
 	
 	// Private data members
-	private GameObject [][] m_hexes;
+	public GameObject [][] m_hexes;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +22,7 @@ public class HexGrid : MonoBehaviour {
 	
 	}
 	
+	// Procedurally generate hexes
 	public void CreateHexes() {
 		
 		// Load Prefab
@@ -78,4 +79,65 @@ public class HexGrid : MonoBehaviour {
 		}
 	}
 	
+	// Drop flowers to hexes
+	public void DropFlowers()
+	{
+		GameObject[] flowers = null;
+		flowers = GameObject.FindGameObjectsWithTag("Flower");
+		
+		
+		GameObject[] hexes = null;
+		hexes = GameObject.FindGameObjectsWithTag("Hex");
+		
+		for (int i=0; i < flowers.Length ; ++i)
+		{
+			Vector3 flowerPosition = flowers[i].transform.position;
+			float min_distance = 100.0f;
+			GameObject new_parent = null;
+			
+			// Determine closest hex
+			for (int j=0; j < hexes.Length ; ++j)
+			{
+				if (Vector3.Distance(flowerPosition,hexes[j].transform.position) < min_distance)
+				{
+					min_distance = Vector3.Distance(flowerPosition,hexes[j].transform.position);
+					new_parent = hexes[j];
+				}
+			}
+			
+			flowers[i].transform.parent = new_parent.transform;
+			flowers[i].transform.localPosition = new Vector3(0,0,0);
+		}
+	}
+	
+	// Drop Bees
+	public void DropBees()
+	{
+		GameObject[] bees = null;
+		bees = GameObject.FindGameObjectsWithTag("Bee");
+		
+		
+		GameObject[] flowers = null;
+		flowers = GameObject.FindGameObjectsWithTag("Flower");
+		
+		for (int i=0; i < bees.Length ; ++i)
+		{
+			Vector3 beePosition = bees[i].transform.position;
+			float min_distance = 100.0f;
+			GameObject new_parent = null;
+			
+			// Determine closest hex
+			for (int j=0; j < flowers.Length ; ++j)
+			{
+				if (Vector3.Distance(beePosition,flowers[j].transform.position) < min_distance)
+				{
+					min_distance = Vector3.Distance(beePosition,flowers[j].transform.position);
+					new_parent = flowers[j];
+				}
+			}
+			
+			bees[i].transform.parent = new_parent.transform;
+			bees[i].transform.localPosition = new Vector3(0,0,0);
+		}
+	}
 }

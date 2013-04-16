@@ -63,6 +63,10 @@ public class AntSpawner : MonoBehaviour {
 		// Process level string
 		ProcessInstructions();
 		
+		// Get initial spawn time
+		DateTime now = System.DateTime.Now;
+		m_nextSpawn = (now).AddMilliseconds(m_instructions[m_instructionIndex].m_time*1000);
+		
 	}
 	
     // ********************************************************************
