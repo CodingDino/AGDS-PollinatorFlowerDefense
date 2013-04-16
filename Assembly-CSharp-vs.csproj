@@ -146,8 +146,10 @@
      <Compile Include="Assets\Scripts\BeeBasic.cs" />
      <Compile Include="Assets\Scripts\Flower.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\HexButton.cs" />
      <Compile Include="Assets\Scripts\HexGrid.cs" />
      <Compile Include="Assets\Scripts\HexMenu.cs" />
+     <Compile Include="Assets\Scripts\Overlay.cs" />
      <Compile Include="Assets\Scripts\Pollen.cs" />
      <Compile Include="Assets\iTween\Plugins\iTween.cs" />
      <Compile Include="Assets\iTween\Sample\MoveSample.cs" />

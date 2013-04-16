@@ -19,6 +19,17 @@ public class Pollen : MonoBehaviour {
 	
 	}
 	
+	// Take pollen if possible
+	public bool UsePollen(int quantity)
+	{
+		if (quantity > m_pollen)
+			return false;
+		
+		m_pollen -= quantity;
+		
+		return true;
+	}
+	
 	// Increase pollen
 	public void AddPollen(int quantity)
 	{

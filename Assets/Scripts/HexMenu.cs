@@ -2,9 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 public class HexMenu : MonoBehaviour {
+	
+	private static GameObject s_overlay = null;
 
 	// Use this for initialization
 	void Start () {
+		if (!s_overlay) s_overlay = GameObject.Find ("Overlay");
 	}
 	
 	// Update is called once per frame
@@ -19,6 +22,9 @@ public class HexMenu : MonoBehaviour {
 	{
 		// Debug Message
 		Debug.Log ("Hex Click/touch detected.");
+		
+		// Activate overlay
+		s_overlay.GetComponent<Overlay>().ActivateOverlay(gameObject);
 		
 	}
 }
