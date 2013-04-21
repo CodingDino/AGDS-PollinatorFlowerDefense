@@ -9,7 +9,7 @@ public class AntAI : MonoBehaviour {
 	public int damage=10;
     
     private Seeker seeker;
-    private CharacterController controller;
+    //private CharacterController controller;
  
     //The calculated path
     public Path path;
@@ -25,7 +25,7 @@ public class AntAI : MonoBehaviour {
  
     public void Start () {
         seeker = GetComponent<Seeker>();
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
 		
 		// If not target, get it
 		if (!target)
@@ -69,7 +69,8 @@ public class AntAI : MonoBehaviour {
         //Direction to the next waypoint
         Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized;
         dir *= speed * Time.fixedDeltaTime;
-        controller.Move (dir);
+        //controller.Move (dir);
+		gameObject.GetComponent<OTSprite>().position = new Vector2(transform.position.x+dir.x,transform.position.y+dir.y);
 		gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI);
 		//gameObject.GetComponent<OTSprite>().RotateTowards(rotation);
 		//gameObject.transform.TransformDirection(dir);
@@ -80,7 +81,7 @@ public class AntAI : MonoBehaviour {
         
         //Check if we are close enough to the next waypoint
         //If we are, proceed to follow the next waypoint
-        if (Vector3.Distance (transform.position,path.vectorPath[currentWaypoint]) < nextWaypointDistance) {
+        if (Vector2.Distance (transform.position,path.vectorPath[currentWaypoint]) < nextWaypointDistance) {
             currentWaypoint++;
             return;
         }

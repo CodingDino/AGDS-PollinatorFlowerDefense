@@ -64,7 +64,7 @@ public class BeeBasic : MonoBehaviour {
 		//float minDistance = 1000;
 		// For each potential target
         foreach (GameObject potentialTarget in potentialTargets) {
-			float distance = (potentialTarget.transform.position-transform.position).sqrMagnitude;
+			float distance = Vector2.Distance (transform.position,potentialTarget.transform.position);
 			if (distance < range) 
 			{
 				// Choose first target in range
