@@ -76,6 +76,10 @@ public class BeeBasic : MonoBehaviour {
 		// Attack target if it is time.
 		if(target !=null && !m_dragging)
 		{
+			// Turn to look at target
+		    Vector3 dir = (target.transform.position-transform.position);
+			gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI);
+			
 			DateTime now = System.DateTime.Now;
 			if (now >= nextAttack)
 			{
@@ -85,6 +89,7 @@ public class BeeBasic : MonoBehaviour {
 				// REMOVED: Directly damage target
 				//Health targetHealth = target.GetComponent<Health>();
 				//targetHealth.SetHP(targetHealth.HP-damage);
+				
 				
 				// Spawn a stinger
 				GameObject stinger = (GameObject)Instantiate(
