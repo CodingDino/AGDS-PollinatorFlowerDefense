@@ -151,6 +151,7 @@
      <Compile Include="Assets\Scripts\HexMenu.cs" />
      <Compile Include="Assets\Scripts\Hive.cs" />
      <Compile Include="Assets\Scripts\Overlay.cs" />
+     <Compile Include="Assets\Scripts\Stinger.cs" />
      <Compile Include="Assets\iTween\Plugins\iTween.cs" />
      <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
      <Compile Include="Assets\iTween\Sample\RotateSample.cs" />

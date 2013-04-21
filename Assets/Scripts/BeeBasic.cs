@@ -81,8 +81,22 @@ public class BeeBasic : MonoBehaviour {
 			{
 				nextAttack = (now).AddMilliseconds(speed*1000);
 				Debug.Log("Attacking target: "+target);
-				Health targetHealth = target.GetComponent<Health>();
-				targetHealth.SetHP(targetHealth.HP-damage);
+				
+				// REMOVED: Directly damage target
+				//Health targetHealth = target.GetComponent<Health>();
+				//targetHealth.SetHP(targetHealth.HP-damage);
+				
+				// Spawn a stinger
+				GameObject stinger = (GameObject)Instantiate(
+					(GameObject)Resources.Load("stinger", typeof(GameObject)),
+					transform.position, 
+					Quaternion.identity);
+				
+				// Set the stinger's parameters
+				stinger.GetComponent<OTSprite>().position = new Vector2(transform.position.x,transform.position.y);
+				stinger.GetComponent<Stinger>().m_target = target;
+				stinger.GetComponent<Stinger>().m_damage = damage;
+				
 				//Debug.Log("current time: "+(now).TimeOfDay);
 				//Debug.Log("Next attack available: "+nextAttack.TimeOfDay);
 			}
