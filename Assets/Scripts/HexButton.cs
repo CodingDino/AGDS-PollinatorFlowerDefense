@@ -81,9 +81,20 @@ public class HexButton : MonoBehaviour {
 		// Drop the new object to the flower or hex.
 		Debug.Log("Dropping entity to hex");
 		if (new_object.tag == "Flower")
+		{
 			new_object.transform.parent = hex.transform;
+			new_object.GetComponent<OTSprite>().position = new Vector2(0,0);
+			new_object.GetComponent<OTSprite>().size = new Vector2(0.85f,0.95f);
+			//GameObject.Find("A*").GetComponent<AstarPath>().UpdateGraphs(new Bounds(hex.transform.position,new_object.transform.lossyScale));
+			//GameObject.Find("A*").GetComponent<AstarPath>().FlushGraphUpdates();
+			GameObject.Find ("AntSpawner").GetComponent<AntSpawner>().RecalculatePaths();
+		}
 		if (new_object.tag == "Bee")
+		{
 			new_object.transform.parent = hex.transform.GetChild(0);
+			new_object.GetComponent<OTSprite>().position = new Vector2(0,0);
+		}
 		
+
 	}
 }

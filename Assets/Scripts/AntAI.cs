@@ -33,11 +33,16 @@ public class AntAI : MonoBehaviour {
 		
 		targetPosition = target.transform.position;
         
+		CalculatePath();
+    }
+    
+	public void CalculatePath()
+	{
         //Start a new path to the targetPosition, return the result to the OnPathComplete function
         Debug.Log ("Looking for a path between our position: "+transform.position+" and target position: "+targetPosition);
         seeker.StartPath (transform.position,targetPosition, OnPathComplete);
-    }
-    
+	}
+	
     public void OnPathComplete (Path p) {
         Debug.Log ("Yey, we got a path back. Did it have an error? "+p.error);
         if (!p.error) {
@@ -65,6 +70,11 @@ public class AntAI : MonoBehaviour {
         Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized;
         dir *= speed * Time.fixedDeltaTime;
         controller.Move (dir);
+		gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI);
+		//gameObject.GetComponent<OTSprite>().RotateTowards(rotation);
+		//gameObject.transform.TransformDirection(dir);
+		//gameObject.transform.rotation.SetFromToRotation(dir,dir);
+		//gameObject.GetComponent<OTSprite>().RotateTowards(target.GetComponent<OTSprite>());
 		
 		//Debug.Log ("Waypoint: "+path.vectorPath[currentWaypoint]+"   Position: "+transform.position);
         

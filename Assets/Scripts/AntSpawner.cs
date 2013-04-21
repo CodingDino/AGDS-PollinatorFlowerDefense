@@ -86,6 +86,8 @@ public class AntSpawner : MonoBehaviour {
 					m_instructions[m_instructionIndex].m_enemy,
 					transform.position, 
 					Quaternion.identity);
+				new_enemy.GetComponent<OTSprite>().position = new Vector2(transform.position.x,transform.position.y);
+
 				// TODO: Set enemy level
 				
 				// Increment instruction
@@ -182,5 +184,25 @@ public class AntSpawner : MonoBehaviour {
 			
 		}
 			
+	}
+	
+	
+    // ********************************************************************
+    // Function:	RecalculatePaths()
+	// Purpose:		Recalculates path for all enemies
+    // ********************************************************************
+	public void RecalculatePaths()
+	{
+		Debug.Log("Recalculating path...");
+		
+		// Recalculate grid
+		GameObject.Find("A*").GetComponent<AstarPath>().Scan();
+		//GameObject.Find("A*").GetComponent<AstarPath>().FlushGraphUpdates();
+		
+		// Recalculate paths
+		foreach(GameObject enemy in m_enemies)
+		{
+			if (enemy) enemy.GetComponent<AntAI>().CalculatePath();
+		}
 	}
 }

@@ -1,18 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HexButton.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AntAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Hive.cs" Line="47" Column="25" />
-      <File FileName="Assets\Scripts\Flower.cs" Line="19" Column="2" />
-      <File FileName="Assets\Scripts\BeeBasic.cs" Line="176" Column="26" />
-      <File FileName="Assets\Scripts\Health.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AntAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AntSpawner.cs" Line="88" Column="27" />
-      <File FileName="Assets\Scripts\HexGrid.cs" Line="140" Column="57" />
-      <File FileName="Assets\Scripts\HexMenu.cs" Line="15" Column="2" />
+      <File FileName="Assets\Scripts\AntAI.cs" Line="70" Column="88" />
+      <File FileName="Assets\Scripts\AntSpawner.cs" Line="84" Column="19" />
+      <File FileName="Assets\Scripts\HexGrid.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HexMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Assets\Editor\HexGridEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HexButton.cs" Line="28" Column="35" />
-      <File FileName="Assets\Scripts\Overlay.cs" Line="162" Column="42" />
+      <File FileName="Assets\Scripts\HexButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Overlay.cs" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\AstarPathfindingProject\Core\AstarPath.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
