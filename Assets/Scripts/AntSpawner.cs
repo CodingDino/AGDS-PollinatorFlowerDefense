@@ -28,6 +28,7 @@ public class AntSpawner : MonoBehaviour {
 	private struct SpawnInstruction {
 		public float m_time;
 		public GameObject m_enemy;
+		public string m_name;
 		public int m_level;
 		
 	    // ****************************************************************
@@ -89,6 +90,16 @@ public class AntSpawner : MonoBehaviour {
 				new_enemy.GetComponent<OTSprite>().position = new Vector2(transform.position.x,transform.position.y);
 
 				// TODO: Set enemy level
+				
+				// Set up animation
+				OTAnimatingSprite sprite = new_enemy.GetComponent<OTAnimatingSprite>();
+				if (sprite != null)
+				{
+					sprite.animation = GameObject.Find("OT").
+						transform.FindChild("Animations").transform.
+							FindChild(m_instructions[m_instructionIndex].m_name).
+							GetComponent<OTAnimation>();
+				}
 				
 				// Increment instruction
 				++m_instructionIndex;
@@ -155,6 +166,7 @@ public class AntSpawner : MonoBehaviour {
 			
 			// Parse and record the type of creature to be spawned
 			instruction.m_enemy =  (GameObject)Resources.Load(instructionFields[0], typeof(GameObject));
+			instruction.m_name = instructionFields[0];
 			
 			// Parse and record the creature level
 			if (instructionFields.Length >= 2)

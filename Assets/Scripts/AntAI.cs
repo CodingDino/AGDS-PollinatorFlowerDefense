@@ -55,6 +55,7 @@ public class AntAI : MonoBehaviour {
 	
 	public int GetNodesToTarget()
 	{
+		if (path == null || path.vectorPath == null) return 100;
 		return path.vectorPath.Count - currentWaypoint;
 	}
  
@@ -77,6 +78,8 @@ public class AntAI : MonoBehaviour {
         //controller.Move (dir);
 		gameObject.GetComponent<OTSprite>().position = new Vector2(transform.position.x+dir.x,transform.position.y+dir.y);
 		gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI);
+		if (gameObject.GetComponent<OTAnimatingSprite>() != null) 
+			gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI)-90.0f;
 		//gameObject.GetComponent<OTSprite>().RotateTowards(rotation);
 		//gameObject.transform.TransformDirection(dir);
 		//gameObject.transform.rotation.SetFromToRotation(dir,dir);
