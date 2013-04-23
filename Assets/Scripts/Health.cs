@@ -27,6 +27,7 @@ public class Health : MonoBehaviour {
 	public float m_height = 0.15f;
 	public float m_positionX = 0f;
 	public float m_positionY = 0.6f;
+	public bool m_immortal = false;
 	public float HP {
 		get {
 			return m_currentHP;
@@ -44,7 +45,6 @@ public class Health : MonoBehaviour {
 	private GameObject m_healthbarBackgroundInstance;
 	private OTSprite m_sprite;
 	private OTSprite m_spriteBackground;
-	
 	
     // ********************************************************************
     // Function:	Awake()
@@ -98,7 +98,7 @@ public class Health : MonoBehaviour {
 		m_currentHP = HP;
 		m_sprite.size= new Vector2(m_width*(HP/m_maxHP),m_height);
 		
-		if(HP <= 0)
+		if(HP <= 0 && !m_immortal)
 		{
 			Kill();
 		}

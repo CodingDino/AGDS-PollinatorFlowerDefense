@@ -144,6 +144,10 @@
      <Compile Include="Assets\Scripts\AntAI.cs" />
      <Compile Include="Assets\Scripts\AntSpawner.cs" />
      <Compile Include="Assets\Scripts\BeeBasic.cs" />
+     <Compile Include="Assets\Scripts\ButtonExit.cs" />
+     <Compile Include="Assets\Scripts\ButtonLevel.cs" />
+     <Compile Include="Assets\Scripts\ButtonPlay.cs" />
+     <Compile Include="Assets\Scripts\DialogLoss.cs" />
      <Compile Include="Assets\Scripts\Flower.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\HexButton.cs" />
