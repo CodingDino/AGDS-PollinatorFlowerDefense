@@ -148,6 +148,7 @@
      <Compile Include="Assets\Scripts\ButtonLevel.cs" />
      <Compile Include="Assets\Scripts\ButtonPlay.cs" />
      <Compile Include="Assets\Scripts\DialogLoss.cs" />
+     <Compile Include="Assets\Scripts\DialogWin.cs" />
      <Compile Include="Assets\Scripts\Flower.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\HexButton.cs" />

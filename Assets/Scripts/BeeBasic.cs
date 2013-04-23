@@ -61,6 +61,7 @@ public class BeeBasic : MonoBehaviour {
 		potentialTargets = GameObject.FindGameObjectsWithTag("Ant");
 		// if (potentialTargets != null) Debug.Log("Potential targets found: "+potentialTargets);
 		GameObject target = null;
+		int targetPathDistance = 100;
 		//float minDistance = 1000;
 		// For each potential target
         foreach (GameObject potentialTarget in potentialTargets) {
@@ -68,8 +69,11 @@ public class BeeBasic : MonoBehaviour {
 			if (distance < range) 
 			{
 				// Choose first target in range
-				target = potentialTarget;
-				break;
+				if (potentialTarget.GetComponent<AntAI>().GetNodesToTarget() < targetPathDistance)
+				{
+					target = potentialTarget;
+					targetPathDistance = potentialTarget.GetComponent<AntAI>().GetNodesToTarget();
+				}
 			}
 		}
 		

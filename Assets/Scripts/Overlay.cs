@@ -57,7 +57,10 @@ public class Overlay : MonoBehaviour {
 	{
 		// If already active, stop.
 		DateTime now = System.DateTime.Now;
-		if (m_active || GameObject.Find("Dialog-Loss").GetComponent<DialogLoss>().IsActive() || now < m_nextTouch) return;
+		if (m_active 
+			|| GameObject.Find("Dialog-Loss").GetComponent<DialogLoss>().IsActive() 
+			|| GameObject.Find("Dialog-Win").GetComponent<DialogWin>().IsActive()
+			|| now < m_nextTouch) return;
 		
 		// Check if hex has a flower
 		bool hasFlower = false, hasBee = false;

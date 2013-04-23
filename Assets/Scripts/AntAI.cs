@@ -52,6 +52,11 @@ public class AntAI : MonoBehaviour {
             currentWaypoint = 0;
         }
     }
+	
+	public int GetNodesToTarget()
+	{
+		return path.vectorPath.Count - currentWaypoint;
+	}
  
     public void FixedUpdate () {
         if (path == null) {

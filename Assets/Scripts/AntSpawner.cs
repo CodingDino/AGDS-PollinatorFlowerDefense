@@ -101,6 +101,16 @@ public class AntSpawner : MonoBehaviour {
 				m_enemies.Add (new_enemy);
 			}
 		}
+		else // We're done spawning enemies, check if any enemies are still alive
+		{
+			foreach (GameObject enemy in m_enemies)
+			{
+				if (enemy)
+					return;
+			}
+			// If we got here, there are no enemies left
+			GameObject.Find("Dialog-Win").GetComponent<DialogWin>().Activate();
+		}
 	
 	}
 	
