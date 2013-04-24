@@ -1,7 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class HexButton : MonoBehaviour {
+	
+	public AudioClip m_badClick;
+	public AudioClip m_goodClick;
 	
 	public GameObject m_spawnTarget;
 	public int m_cost = 10;
@@ -56,6 +60,7 @@ public class HexButton : MonoBehaviour {
 			if(!hive.GetComponent<Hive>().UsePollen(m_cost)) 
 			{
 				Debug.Log("Not enough pollen.");
+				if (m_badClick) audio.PlayOneShot(m_badClick);
 				return;
 			}
 		}
@@ -65,9 +70,11 @@ public class HexButton : MonoBehaviour {
 			if(!hive.GetComponent<Hive>().UseSeeds(m_cost)) 
 			{
 				Debug.Log("Not enough seeds.");
+				if (m_badClick) audio.PlayOneShot(m_badClick);
 				return;
 			}
 		}
+		if (m_goodClick) audio.PlayOneShot(m_goodClick);
 		
 		// Get the calling hex
 		GameObject hex = s_overlay.GetComponent<Overlay>().GetCallingHex();
