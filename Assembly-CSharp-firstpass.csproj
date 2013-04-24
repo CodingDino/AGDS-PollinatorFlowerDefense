@@ -114,6 +114,7 @@
      <None Include="Assets\Plugins\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />
      <None Include="Assets\Orthello\Examples\4 - Follow Target View\-orthello-config.xml" />
      <None Include="Assets\Orthello\-Read-Me.txt" />
+     <None Include="Assets\SpriteAtlases\bee-worker.xml" />
      <None Include="Assets\Plugins\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\dependencies.txt" />

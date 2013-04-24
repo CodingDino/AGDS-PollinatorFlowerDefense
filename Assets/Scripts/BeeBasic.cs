@@ -34,6 +34,16 @@ public class BeeBasic : MonoBehaviour {
 		
 		// Set flower pointer
 		m_flower = transform.parent;
+		
+		// Set up animation
+		OTAnimatingSprite sprite = GetComponent<OTAnimatingSprite>();
+		if (sprite != null)
+		{
+			sprite.animation = GameObject.Find("OT").
+				transform.FindChild("Animations").transform.
+					FindChild("bee_worker"). // TODO: If we have different bee types, this must change
+					GetComponent<OTAnimation>();
+		}
 	}
 	
 	// Update is called once per frame
@@ -184,7 +194,7 @@ public class BeeBasic : MonoBehaviour {
 			Debug.Log("No flowers found.");
 		}
 		Vector3 beePosition = transform.position;
-		float min_distance = 10000.0f;
+		float min_distance = 1000000000000.0f;
 		GameObject new_parent = null;
 		
 		// Determine closest flower
@@ -228,6 +238,7 @@ public class BeeBasic : MonoBehaviour {
 		m_dragging = false;
 		transform.parent = m_flower; // Set parent to the flower - if no new flower was set, this will be the previous flower parent.
 		transform.localPosition = new Vector3(0,0,transform.localPosition.z); // snap to center of flower.
+		GetComponent<OTSprite>().position = new Vector2(0,0);
 		
 	}
 	

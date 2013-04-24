@@ -24,7 +24,7 @@ public class HexMenu : MonoBehaviour {
 		Debug.Log ("Hex Click/touch detected.");
 		
 		// Activate overlay
-		s_overlay.GetComponent<Overlay>().ActivateOverlay(gameObject);
+		if (s_overlay != null && s_overlay.GetComponent<Overlay>() != null ) s_overlay.GetComponent<Overlay>().ActivateOverlay(gameObject);
 		
 	}
 }

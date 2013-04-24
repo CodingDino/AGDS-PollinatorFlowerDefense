@@ -82,23 +82,29 @@ public class AntSpawner : MonoBehaviour {
 			DateTime now = System.DateTime.Now;
 			if (now >= m_nextSpawn)
 			{
-				// Spawn enemy
-				GameObject new_enemy = (GameObject)Instantiate(
-					m_instructions[m_instructionIndex].m_enemy,
-					transform.position, 
-					Quaternion.identity);
-				new_enemy.GetComponent<OTSprite>().position = new Vector2(transform.position.x,transform.position.y);
-
-				// TODO: Set enemy level
-				
-				// Set up animation
-				OTAnimatingSprite sprite = new_enemy.GetComponent<OTAnimatingSprite>();
-				if (sprite != null)
+				if (m_instructions[m_instructionIndex].m_enemy)
 				{
-					sprite.animation = GameObject.Find("OT").
-						transform.FindChild("Animations").transform.
-							FindChild(m_instructions[m_instructionIndex].m_name).
-							GetComponent<OTAnimation>();
+					// Spawn enemy
+					GameObject new_enemy = (GameObject)Instantiate(
+						m_instructions[m_instructionIndex].m_enemy,
+						transform.position, 
+						Quaternion.identity);
+					new_enemy.GetComponent<OTSprite>().position = new Vector2(transform.position.x,transform.position.y);
+	
+					// TODO: Set enemy level
+					
+					// Set up animation
+					OTAnimatingSprite sprite = new_enemy.GetComponent<OTAnimatingSprite>();
+					if (sprite != null)
+					{
+						sprite.animation = GameObject.Find("OT").
+							transform.FindChild("Animations").transform.
+								FindChild(m_instructions[m_instructionIndex].m_name).
+								GetComponent<OTAnimation>();
+					}
+						
+					// Add the enemy to the list
+					m_enemies.Add (new_enemy);
 				}
 				
 				// Increment instruction
@@ -108,8 +114,6 @@ public class AntSpawner : MonoBehaviour {
 				if (m_instructionIndex < m_instructions.Count)
 					m_nextSpawn = (now).AddMilliseconds(m_instructions[m_instructionIndex].m_time*1000);
 				
-				// Add the enemy to the list
-				m_enemies.Add (new_enemy);
 			}
 		}
 		else // We're done spawning enemies, check if any enemies are still alive
@@ -147,7 +151,7 @@ public class AntSpawner : MonoBehaviour {
 			// Break the instruction into three fields
 			string[] instructionFields = instructionString.Split(',');
 			// Deal with possible leading white space
-			if (instructionFields.Length > 0 && instructionFields[0] == "")
+			if (instructionFields.Length > 0 && instructionFields[0] == " ")
 			{
 				string newinstructionString = instructionString.Remove(0,1);
 				instructionFields = newinstructionString.Split(',');
