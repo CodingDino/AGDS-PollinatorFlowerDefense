@@ -2,11 +2,13 @@ using UnityEngine;
 using System.Collections;
 using Pathfinding;
 
+[RequireComponent(typeof(AudioSource))]
 public class AntAI : MonoBehaviour {
 	
 	public GameObject target;
     public Vector3 targetPosition;
 	public int damage=10;
+	public AudioClip m_attackSound = null;
     
     private Seeker seeker;
     //private CharacterController controller;
@@ -66,9 +68,12 @@ public class AntAI : MonoBehaviour {
         }
         
         if (currentWaypoint >= path.vectorPath.Count) {
-            //Debug.Log ("End Of Path Reached");
+            Debug.Log ("End Of Path Reached");
 			target.GetComponent<Health>().SetHP(target.GetComponent<Health>().HP-damage);
 			gameObject.GetComponent<Health>().Kill();
+			audio.enabled = true;
+			//if (m_attackSound) 
+				audio.PlayOneShot(m_attackSound,1.0f);
             return;
         }
         
@@ -80,12 +85,6 @@ public class AntAI : MonoBehaviour {
 		gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI);
 		if (gameObject.GetComponent<OTAnimatingSprite>() != null) 
 			gameObject.GetComponent<OTSprite>().rotation = Mathf.Atan2(dir.y, dir.x)*(180.0f/Mathf.PI)-90.0f;
-		//gameObject.GetComponent<OTSprite>().RotateTowards(rotation);
-		//gameObject.transform.TransformDirection(dir);
-		//gameObject.transform.rotation.SetFromToRotation(dir,dir);
-		//gameObject.GetComponent<OTSprite>().RotateTowards(target.GetComponent<OTSprite>());
-		
-		//Debug.Log ("Waypoint: "+path.vectorPath[currentWaypoint]+"   Position: "+transform.position);
         
         //Check if we are close enough to the next waypoint
         //If we are, proceed to follow the next waypoint

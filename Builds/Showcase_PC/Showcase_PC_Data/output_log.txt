@@ -1,0 +1,178 @@
+Initialize engine version: 4.1.2f1 (911c7369eeac)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1172]
+    Renderer: AMD Radeon HD 6800 Series
+    Vendor:   ATI
+    VRAM:     1002 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 DF24=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Ionic.Zip.Reduced.dll (this message is harmless)
+Loading D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\Ionic.Zip.Reduced.dll into Unity Child Domain
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\JsonFx.Json.dll (this message is harmless)
+Loading D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\JsonFx.Json.dll into Unity Child Domain
+- Completed reload, in  0.038 seconds
+desktop: 1920x1080 60Hz; virtual: 3286x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\System.dll (this message is harmless)
+ButtonPlay Click/touch detected.
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1051.
+Total: 1.889940 ms (FindLiveObjects: 0.065904 ms CreateObjectMapping: 0.030036 ms MarkObjects: 1.070509 ms  DeleteObjects: 0.047824 ms)
+
+ButtonLevel Click/touch detected - Loading Level_05
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Platform assembly: D:\My Documents\GitHub\Pollinator-Flower-Defense\Builds\Showcase_PC\Showcase_PC_Data\Managed\System.Core.dll (this message is harmless)
+Scanning - Process took 13 ms to complete 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 1532.
+Total: 1.680562 ms (FindLiveObjects: 0.041700 ms CreateObjectMapping: 0.018079 ms MarkObjects: 0.921495 ms  DeleteObjects: 0.391635 ms)
+
+Instantiating healthbar prefab for: bee_worker-2 (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Successfully created instance: healthbar-background(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Successfully created instance: healthbar(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 7s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 8s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 10s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 7s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 15s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_warrior (UnityEngine.GameObject) at level 1 after 5s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_warrior (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 10s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_worker (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_warrior (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_warrior (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn ant_stagbeetle (UnityEngine.GameObject) at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Parsed instruction: Spawn  at level 1 after 1s 
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Instantiating healthbar prefab for: bee_worker (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Successfully created instance: healthbar-background(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Successfully created instance: healthbar(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Instantiating healthbar prefab for: hive (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Successfully created instance: healthbar-background(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+Successfully created instance: healthbar(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/BuildAgent/work/7535de4ca26c26ac/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(AudioSource))]
 public class BeeBasic : MonoBehaviour {
 	
 	// Design data members
@@ -12,6 +13,8 @@ public class BeeBasic : MonoBehaviour {
 	public int range = 1;
 	public float m_pollenSpeed = 1.0f;
 	public float m_seedSpeed = 1.0f;
+	
+	public AudioClip m_attackSound = null;
 	
 	// Internal data members
 	protected DateTime m_nextPollen = System.DateTime.Now;
@@ -110,6 +113,7 @@ public class BeeBasic : MonoBehaviour {
 					(GameObject)Resources.Load("stinger", typeof(GameObject)),
 					transform.position, 
 					Quaternion.identity);
+				if (m_attackSound) audio.PlayOneShot(m_attackSound,0.5f);
 				
 				// Set the stinger's parameters
 				stinger.GetComponent<OTSprite>().position = new Vector2(transform.position.x,transform.position.y);
